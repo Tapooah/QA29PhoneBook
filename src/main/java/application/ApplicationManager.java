@@ -17,10 +17,11 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         userHelper = new UserHelper(wd);
         contactHelper = new ContactHelper(wd);
+
     }
 
     public void stop() {
-        wd.quit();
+//        wd.quit();
     }
 
     public UserHelper getUserHelper() {
