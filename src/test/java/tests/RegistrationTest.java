@@ -18,4 +18,15 @@ public class RegistrationTest extends TestBase {
 
         Assert.assertTrue(app.getUserHelper().isLoggedRegistered());
     }
+
+    @Test
+    public void negativeRegistrationTestWrongPass(){
+        int i= (int) ((System.currentTimeMillis()/1000)%3600);
+
+        User user = new User().withEmail("pablus_tester" + i + "@gmail.com").withPassword("PablusTester" + i);
+        app.getUserHelper().openLoginRegistrationForm();
+        app.getUserHelper().fillLoginRegistrationForm(user);
+        app.getUserHelper().clickRegButton();
+        Assert.assertTrue(app.getUserHelper().isAlertPresent());
+    }
 }

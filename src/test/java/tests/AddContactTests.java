@@ -21,6 +21,7 @@ public class AddContactTests extends TestBase {
     //test
     @Test
     public void addNewContact() {
+        //if number of contact <5
         int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
 
         Contact contact = new Contact()

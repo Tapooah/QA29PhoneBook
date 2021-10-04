@@ -17,3 +17,19 @@ dependencies {
 test {
     useTestNG()
 }
+task reg(type: Test){
+
+    useTestNG{
+        def suite = System.getProperty('suite', '')
+        if (suite.equals('regng')) {
+            suites 'src/tests/resources/regng.xml'
+        } else if (suite.equals('smoke')) {
+            suites 'src/tests/resources/smoke.xml'
+        } else {
+            suites 'src/tests/resources/testng.xml'
+        }
+
+    }
+
+
+}

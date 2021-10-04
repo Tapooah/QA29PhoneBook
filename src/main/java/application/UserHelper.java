@@ -50,16 +50,23 @@ public class UserHelper extends HelperBase {
 
     public boolean isAlertPresent() {
 
-        try {
-            Alert alert = (new WebDriverWait(wd, 30)).until(ExpectedConditions.alertIsPresent());
-            wd.switchTo().alert();
-//            pause(2000);
-            alert.dismiss();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
+//        try {
+//            Alert alert = (new WebDriverWait(wd, 30)).until(ExpectedConditions.alertIsPresent());
+//            wd.switchTo().alert();
+////            pause(2000);
+//            alert.dismiss();
+//            return true;
+//        } catch (NoAlertPresentException e) {
+//            return false;
+//        }
+        Alert alert = (new WebDriverWait(wd, 30)).until(ExpectedConditions.alertIsPresent());
 
+        if (alert == null) {
+            return false;
+        } else {
+            alert.accept();
+            return true;
+        }
     }
 
 }
