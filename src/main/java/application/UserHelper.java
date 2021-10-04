@@ -1,12 +1,17 @@
 package application;
 
+import models.Contact;
 import models.User;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserHelper extends HelperBase {
     public UserHelper(WebDriver wd) {
@@ -35,6 +40,19 @@ public class UserHelper extends HelperBase {
     public void clickLogButton() {
         click(By.xpath("//button[normalize-space()='Login']"));
 
+    }
+
+    public void clickContactsButton() {
+        click(By.xpath("//a[normalize-space()='CONTACTS']"));
+    }
+
+    public void clickOnContactCard() {
+        click(By.cssSelector("div[class='contact-page_leftdiv__yhyke'] div div:nth-child(1)"));
+    }
+
+    public void clickRemoveButton() {
+        click(By.xpath("//button[normalize-space()='Remove']"));
+        pause(2000);
     }
 
     public boolean isLogOutPresent() {
@@ -68,5 +86,18 @@ public class UserHelper extends HelperBase {
             return true;
         }
     }
+
+    public void removeAll() {
+
+        List<String> myList = new ArrayList<>();
+       for (int i =  wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size(); i > 0; i--){
+           clickOnContactCard();
+           clickRemoveButton() ;
+           pause(2000);
+       }
+
+    }
+
+
 
 }

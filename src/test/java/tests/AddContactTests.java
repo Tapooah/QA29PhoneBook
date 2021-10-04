@@ -22,19 +22,21 @@ public class AddContactTests extends TestBase {
     @Test
     public void addNewContact() {
         //if number of contact <5
-        int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
 
-        Contact contact = new Contact()
-                .withName("Pablus" + i)
-                .withLastName("Tester" + i)
-                .withPhoneNumber("05" + i + i)
-                .withEmail("pablus_tester" + i + "@telran.com")
-                .withAddress("Menakhem Plaut St " + i)
-                .withDescription("the best student");
+            int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
 
-        app.getContactHelper().initAddNewContact();
-        app.getContactHelper().fillContactForm(contact);
-        app.getContactHelper().submitButton();
+            Contact contact = new Contact()
+                    .withName("Pablus" + i)
+                    .withLastName("Tester" + i)
+                    .withPhoneNumber("05" + i + i)
+                    .withEmail("pablus_tester" + i + "@telran.com")
+                    .withAddress("Menakhem Plaut St " + i)
+                    .withDescription("the best student");
+
+
+            app.getContactHelper().initAddNewContact();
+            app.getContactHelper().fillContactForm(contact);
+            app.getContactHelper().submitButton();
 
         Assert.assertTrue(app.getContactHelper().isContactAdded());
     }

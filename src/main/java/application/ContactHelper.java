@@ -32,4 +32,31 @@ public class ContactHelper extends HelperBase {
     public boolean isContactAdded() {
         return isElementPresent(By.xpath("//div[@class='contact-page_leftdiv__yhyke']//div//div[1]"));
     }
+
+    public int count() {
+        return wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
+    }
+
+    public void checkAndAddContacts() {
+        int count = count();
+
+        if (count < 5) {
+            for (int j = 0; j < 5-count; j++) {
+
+                int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
+
+                Contact contact = new Contact()
+                        .withName("Pablus" + i)
+                        .withLastName("Tester" + i)
+                        .withPhoneNumber("05" + i + i)
+                        .withEmail("pablus_tester" + i + "@telran.com")
+                        .withAddress("Menakhem Plaut St " + i)
+                        .withDescription("the best student");
+
+                initAddNewContact();
+                fillContactForm(contact);
+                submitButton();
+            }
+        }
+    }
 }
