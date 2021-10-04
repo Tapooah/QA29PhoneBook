@@ -20,8 +20,8 @@ public class RegistrationTest extends TestBase {
     }
 
     @Test
-    public void negativeRegistrationTestWrongPass(){
-        int i= (int) ((System.currentTimeMillis()/1000)%3600);
+    public void negativeRegistrationTestWrongPass() {
+        int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
 
         User user = new User().withEmail("pablus_tester" + i + "@telran.com").withPassword("PablusTester" + i);
         app.getUserHelper().openLoginRegistrationForm();

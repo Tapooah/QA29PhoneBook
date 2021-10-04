@@ -10,7 +10,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initAddNewContact() {
-        pause(5000);//the response sometimes takes a long time. I guess this is because the server is asleep.
+        pause(1000);//the response sometimes takes a long time. I guess this is because the server is asleep.
         click(By.xpath("//a[normalize-space()='ADD']"));
     }
 
@@ -25,7 +25,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void submitButton() {
-        pause(2000);
+        pause(1000);
         click(By.cssSelector("div[class='add_form__2rsm2'] button b"));
     }
 
@@ -41,7 +41,7 @@ public class ContactHelper extends HelperBase {
         int count = count();
 
         if (count < 5) {
-            for (int j = 0; j < 5-count; j++) {
+            for (int j = 0; j < 5 - count; j++) {
 
                 int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
 

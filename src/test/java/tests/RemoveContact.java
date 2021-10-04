@@ -27,7 +27,7 @@ public class RemoveContact extends TestBase {
         app.getUserHelper().clickOnContactCard();
         app.getUserHelper().clickRemoveButton();
         int countAfter = app.getContactHelper().count();
-        Assert.assertEquals(countAfter, countBefore-1);
+        Assert.assertEquals(countAfter, countBefore - 1);
     }
 
     @Test
@@ -37,6 +37,4 @@ public class RemoveContact extends TestBase {
         int countAfter = app.getContactHelper().count();
         Assert.assertEquals(countAfter, 0);
     }
-
-
 }

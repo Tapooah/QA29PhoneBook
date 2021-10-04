@@ -1,17 +1,12 @@
 package application;
 
-import models.Contact;
 import models.User;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserHelper extends HelperBase {
     public UserHelper(WebDriver wd) {
@@ -25,7 +20,7 @@ public class UserHelper extends HelperBase {
     public void fillLoginRegistrationForm(User user) {
         type(By.xpath("//input[@placeholder='Email']"), user.getEmail());
         type(By.xpath("//input[@placeholder='Password']"), user.getPassword());
-        pause(2000);
+        pause(1000);
     }
 
     public boolean isLoggedRegistered() {
@@ -47,16 +42,19 @@ public class UserHelper extends HelperBase {
     }
 
     public void clickOnContactCard() {
+
         click(By.cssSelector("div[class='contact-page_leftdiv__yhyke'] div div:nth-child(1)"));
     }
 
     public void clickRemoveButton() {
+
         click(By.xpath("//button[normalize-space()='Remove']"));
-        pause(2000);
+        pause(1000);
     }
 
     public boolean isLogOutPresent() {
-        pause(2000);
+        pause(1000);
+
         return isElementPresent(By.xpath("//button[normalize-space()='Sign Out']"));
     }
 
@@ -89,15 +87,10 @@ public class UserHelper extends HelperBase {
 
     public void removeAll() {
 
-        List<String> myList = new ArrayList<>();
-       for (int i =  wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size(); i > 0; i--){
-           clickOnContactCard();
-           clickRemoveButton() ;
-           pause(2000);
-       }
-
+        for (int i = wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size(); i > 0; i--) {
+            clickOnContactCard();
+            clickRemoveButton();
+            pause(1000);
+        }
     }
-
-
-
 }
