@@ -27,6 +27,11 @@ test {
 task reg(type: Test) {
 
     useTestNG {
+        def groups = System.getProperty('groups')
+        if (groups != null) {
+            includeGroups groups
+        }
+
         def suite = System.getProperty('suite', '')
         if (suite.equals('regng')) {
             suites 'src/tests/resources/regng.xml'
@@ -34,6 +39,9 @@ task reg(type: Test) {
             suites 'src/tests/resources/smoke.xml'
         } else {
             suites 'src/tests/resources/testng.xml'
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
         }
 
     }

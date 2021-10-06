@@ -1,6 +1,6 @@
 package tests;
 
-import models.Contact;
+
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -31,9 +31,7 @@ public class AddContactTests extends TestBase {
 //                .withPhoneNumber("05" + i + i)
 //                .withEmail("pablus_tester" + i + "@telran.com")
 //                .withAddress("Menakhem Plaut St " + i)
-//                .withDescription("the best student");
-//
-//
+//                .withDescription("the best student");//
 //        app.getContactHelper().initAddNewContact();
 //        app.getContactHelper().fillContactForm(contact);
 //        app.getContactHelper().submitButton();
